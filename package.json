@@ -7,6 +7,11 @@
   "license": "UNLICENSED",
   "type": "module",
   "scripts": {
+    "db:generate": "nest build && typeorm -d dist/database/data-source.js migration:generate",
+    "db:create": "typeorm migration:create",
+    "db:migrate": "nest build && typeorm -d dist/database/data-source.js migration:run",
+    "db:revert": "nest build && typeorm -d dist/database/data-source.js migration:revert",
+    "db:show": "nest build && typeorm -d dist/database/data-source.js migration:show",
     "build": "nest build",
     "deploy": "nest deploy",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
